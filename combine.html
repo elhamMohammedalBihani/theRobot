@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="combine.css" />
+                       <title>ROBOT</title>
+					   
+					   <style>
+.slidecontainer {
+  width:88%;}
+  
+body {
+  background-color: lightblue;}
+  
+.slider {
+  -webkit-appearance: none;
+  width:88%;
+  height: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.9;
+  -webkit-transition: .2s;
+  transition: opacity .2s;}
+
+.slider:hover {
+  opacity: 1;}
+
+.slider::-webkit-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 5px;
+  height: 20px;
+  background: blue;
+  cursor: pointer;}
+
+.slider::-moz-range-thumb {
+  width:5px;
+  height: 5px;
+  background: #04AA6D;
+  cursor: pointer;}
+  
+
+</style>
+					   
+  </head>
+
+  <body>
+    <header></header>
+
+    
+    <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+    
+    <form id="myForm" action="combine.php" method = "POST" target="dummyframe">
+
+      
+
+            <button class="accordion"> <h1>ARM MOVE</h1></button>
+                               <div class="panel">
+      <p>
+
+        <center>
+        <h2>Engine1</h2>
+        <input type="range" min = "0" max = "180" value="0" id = "myRange1" class = "slider" name = "v1">
+        <p>Value: <span id = "value1"></span></p>
+
+        <h2>Engine2</h2>
+        <input type="range" min = "0" max = "180" value="0" id = "myRange2" class = "slider" name = "v2">
+        <p>Value: <span id = "value2"></span></p>
+        
+        
+        <h2>Engine3</h2>
+        <input type="range" min = "0" max = "180" value="0" id = "myRange3" class = "slider" name = "v3">
+        <p>Value: <span id = "value3"></span></p>
+
+        
+        <h2>Engine4</h2>
+       <input type="range" min = "0" max = "180" value="0" id = "myRange4" class = "slider" name = "v4">
+        <p>Value: <span id = "value4"></span></p>
+
+        
+        <h2>Engine5</h2>
+        <input type="range" min = "0" max = "180" value="0" id = "myRange5" class = "slider" name = "v5">
+        <p>Value: <span id = "value5"></span></p>
+
+       
+        <h2>Engine6</h2>
+        <input type="range" min = "0" max = "180" value="0" id = "myRange6" class = "slider" name = "v6">
+        <p>Value: <span id = "value6"></span></p>
+</center>
+
+      </p>
+  <center>   
+<div>
+        <input type="submit" value = "ON" name = on style="font-size: 30px; background: green; border-radius: 50px; ">
+        <input type="submit" value = "OFF" name = off  style="font-size: 30px; background: red; border-radius: 50px; color: white;">
+
+    </div>
+	</center>
+	
+    </div>
+    <input type="submit" value = "MOVE" name = go  style="font-size: 20px; background: rgb(117, 252, 117); border-radius: 50px;" > 
+
+    
+                 <button class="accordion"><h1>MOVEING BASE</h1></button>
+                        <div class="panel">
+	</div>
+
+    
+	
+<center>
+            <div class = "forward">
+ <input type="submit" value = "↑Forward" name = Forward style="font-size: 30px; background: #669999; border-radius: 60px;" >
+
+            </div>
+            
+            <div class = "center">
+ <input type="submit" value = "←Left" name = left style="font-size: 30px; background: #669999; border-radius: 60px;" >
+ <input type="submit" value = "■Stop" name = stop style="font-size: 30px; background: #669999; border-radius: 60px;" >
+ <input type="submit" value = "Right→" name = Right style="font-size: 30px; background: #669999; border-radius: 60px;" >
+ </div>
+            <div class = "backward">
+ <input type="submit" value = "↓Backward" name = backward style="font-size: 30px; background: #669999; border-radius: 60px;" >
+ </div> 
+ </center>
+	
+
+    </form>  
+
+  </body>
+  <script src="combine.js"></script>
+</html>
