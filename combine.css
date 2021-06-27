@@ -1,0 +1,35 @@
+html{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0,0,0,0.7)));
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+}
+
+h1
+{
+    border-style: inset;
+    color: blue;
+    border-color: blue;
+    text-align: center;
+}
+
+
+.accordion {
+    background-color: lightblue;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+  }
+  
+  .active, .accordion:hover 
+  {
+    background-color: lightblue;
+  }
+
+  
