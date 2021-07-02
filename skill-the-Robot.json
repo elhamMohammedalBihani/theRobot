@@ -1,0 +1,283 @@
+{
+  "intents": [],
+  "entities": [
+    {
+      "entity": "sys-currency",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-date",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-number",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-percentage",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-time",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "استفسارات",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "نص",
+          "synonyms": [
+            "الروبوت",
+            "ايش وظيفه الروبوت",
+            "كيف يشتغل الانسان الالي",
+            "كيف يعمل الروبوت"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "الشراء",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "نص",
+          "synonyms": [
+            "كم يكلف شراء الروبوت",
+            "كيف اقدر اشتريه",
+            "متى متاح الشراء"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "ترحيب",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "نص",
+          "synonyms": [
+            "السلام عليكم",
+            "مرحبا",
+            "هاي"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "الوقت المانسب"
+              },
+              {
+                "text": "5مساء"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_10_1625165018915",
+      "event_name": "focus",
+      "dialog_node": "handler_2_1625165018916",
+      "previous_sibling": "handler_7_1625165018916"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "اليوم المناسب"
+              },
+              {
+                "text": "الخميس"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_2_1625164959043",
+      "event_name": "focus",
+      "dialog_node": "handler_5_1625164959057",
+      "previous_sibling": "handler_7_1625164959057"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_2_1625164959043",
+      "context": {
+        "date": "@sys-date"
+      },
+      "conditions": "@sys-date",
+      "event_name": "input",
+      "dialog_node": "handler_7_1625164959057"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_10_1625165018915",
+      "context": {
+        "time": "@sys-time"
+      },
+      "conditions": "@sys-time",
+      "event_name": "input",
+      "dialog_node": "handler_7_1625165018916"
+    },
+    {
+      "type": "frame",
+      "title": "استفسارات",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "تمت الاستفسار"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "@استفسارات",
+      "dialog_node": "node_1_1625164895028",
+      "previous_sibling": "node_7_1625163441404"
+    },
+    {
+      "type": "standard",
+      "title": "ترحيب",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "ياهلا "
+              },
+              {
+                "text": "كيف اقدر اخدمك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "@ترحيب",
+      "dialog_node": "node_7_1625163441404",
+      "previous_sibling": "مرحبا"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_1_1625164895028",
+      "variable": "$time",
+      "dialog_node": "slot_10_1625165018915",
+      "previous_sibling": "slot_2_1625164959043"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_1_1625164895028",
+      "variable": "$date",
+      "dialog_node": "slot_2_1625164959043"
+    },
+    {
+      "type": "standard",
+      "title": "أي شيء آخر",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "لم أفهم، يمكنك محاولة اعادة الصياغة"
+              },
+              {
+                "text": "هل يمكنك اعادة صياغة عبارتك؟ أنا لا فهم"
+              },
+              {
+                "text": "لم أفهم قصدك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "أي شيء آخر",
+      "previous_sibling": "node_1_1625164895028"
+    },
+    {
+      "type": "standard",
+      "title": "مرحبا",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "مرحباً"
+              },
+              {
+                "text": "السلام عليكم"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "مرحبا"
+    }
+  ],
+  "counterexamples": [
+    {
+      "text": "السلامعليكم"
+    },
+    {
+      "text": "مرحبا"
+    }
+  ],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": ":هل قصدت",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "كل ما سبق خطأ"
+    },
+    "human_agent_assist": {
+      "prompt": ":هل قصدت"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "the Robot",
+  "language": "ar",
+  "description": ""
+}
